@@ -3,15 +3,16 @@ using namespace std;
 
 int BS(int arr[],int first,int last,int a){
 
-    int mid=(first+last)/2;
-    if(first==last+1){
+    
+    if(first>last){
         return -1;
     }
+    int mid=(first+last)/2;
     if(arr[mid]==a){
         return 1;
     }
     else if(a<arr[mid]){
-        last=mid;
+        last=mid-1;
         return BS(arr,first,last,a);
     }
     else if(a>arr[mid]){

@@ -1,5 +1,21 @@
 #include<iostream>
 using namespace std;
+
+int BS(int arr[],int n,int first,int last,int a){
+    for(int i=0;i<n;i++){
+        int mid=(first+last)/2;
+        if(arr[mid]==a){
+            return 1;
+        }
+        else if(arr[mid]<a){
+            first=mid+1;
+        }
+        else if(arr[mid]>a){
+            last=mid-1;
+        }
+    }
+    return -1;
+}
 int main(){
      int arr[100];
      int n;
@@ -23,28 +39,14 @@ int main(){
 
         }
         
-        while (1)
-        {
-            
-            int mid=(first+last)/2;
-            if(first==last+1){
-                cout<<"Not Found\n";
-                break;
-            }
-            if(a==arr[mid]){
-                cout<<"Found\n";
-                break;
-            }
-            else if(a<arr[mid]){
-                last=mid;
-             
-            }
-            else if (a>arr[mid]){
-                first=mid+1;
-                
-            }
-            
+        int ans=BS(arr,n,first,last,a);
+        if(ans==1){
+            cout<<"Found\n";
         }
+        else {
+            cout<<"Not Found\n";
+        }
+        
         
 
 
