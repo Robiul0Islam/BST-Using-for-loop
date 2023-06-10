@@ -2,7 +2,7 @@
 using namespace std;
 
 int BS(int arr[],int n,int first,int last,int a){
-    for(int i=0;i<n;i++){
+    while(first<=last){
         int mid=(first+last)/2;
         if(arr[mid]==a){
             return 1;
